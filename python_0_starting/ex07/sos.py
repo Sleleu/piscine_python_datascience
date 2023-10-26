@@ -19,7 +19,7 @@ def ft_sos() -> None:
         AssertionError: If there are command-line arguments or invalid
         characters in the input.
     """
-    if len(sys.argv) > 1:
+    if len(sys.argv) != 2:
         raise AssertionError
     morse_code = ''
     for arg in sys.argv[1:]:
