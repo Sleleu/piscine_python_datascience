@@ -6,16 +6,14 @@ import matplotlib.pyplot as plt
 def find_country_stat(df: pd.DataFrame, country: str, c_color):
     country_data = df[df["country"] == country].squeeze()
     country_years = country_data.drop("country")
-    index = []
-    values = []
-    for year in country_years.index:
-        if int(year) < 2050:
-            index.append(int(year))
-            values.append(float(country_years[year].replace('M', '')))
+    country_years = country_years.loc[country_years.index <= '2050']
+    index = [int(year) for year in country_years.index]
+    values = [float(value.replace('M', '')) for value in country_years.values]
     plt.plot(index, values, label=country, color=c_color)
 
 
 def aff_pop(df: pd.DataFrame, country1: str, country2):
+    df = df.loc[df.index <= 2050]
     find_country_stat(df, country2, "red")
     find_country_stat(df, country1, "blue")
     plt.title("Population Projections")
