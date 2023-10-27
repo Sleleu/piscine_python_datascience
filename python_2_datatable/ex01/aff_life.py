@@ -4,6 +4,13 @@ import pandas as pd
 
 
 def aff_life(df: pd.DataFrame, country: str):
+    """
+    Plot life expectancy over time for a given country.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing life expectancy data.
+        country (str): Name of the country for the plot.
+    """
     country_data = df[df["country"] == country].squeeze()
     country_years = country_data.drop("country")
     plt.plot(country_years.index, country_years.values)
@@ -13,7 +20,11 @@ def aff_life(df: pd.DataFrame, country: str):
     plt.xticks(range(0, 360, 40))
     plt.show()
 
+
 def main():
+    """
+    Load life expectancy data and plot for a specific country.
+    """
     df = load("life_expectancy_years.csv")
     try:
         aff_life(df, "France")
