@@ -26,7 +26,6 @@ def projection_life(df_life, df_gdp, year) -> None:
     plt.ylabel("Life Expectancy")
     plt.xscale("log")
     plt.xticks([300, 1e3, 1e4], ["300", "1k", "10k"])
-    print(gdp_year)
     plt.show()
 
 
@@ -40,7 +39,7 @@ def main():
     df_gdp = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     try:
         projection_life(df_life, df_gdp, 1900)
-    except (KeyError, TypeError, ValueError) as error:
+    except (KeyError, TypeError, ValueError, AttributeError) as error:
         print(f"{__name__}: {type(error).__name__}: {error}")
 
 

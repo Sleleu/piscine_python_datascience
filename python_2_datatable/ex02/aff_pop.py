@@ -53,7 +53,7 @@ def main():
     df = load("population_total.csv")
     try:
         aff_pop(df, "France", "Belgium")
-    except (KeyError, TypeError, ValueError) as error:
+    except (KeyError, TypeError, ValueError, AttributeError) as error:
         print(f"{__name__}: {type(error).__name__}: {error}")
 
 
