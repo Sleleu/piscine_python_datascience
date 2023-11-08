@@ -10,11 +10,13 @@ class Baratheon(Character):
         self.eyes = "brown"
         self.hairs = "dark"
 
-    def __repr__(self):
-        """Return the string representation of the Lannister character."""
+    def __str__(self):
+        """Return the string representation of the Baratheon character."""
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
-    __str__ = __repr__
+    def __repr__(self):
+        """Return representation of the Baratheon character."""
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     def die(self):
         """
@@ -42,7 +44,9 @@ class Lannister(Character):
         """Return the string representation of the Lannister character."""
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
-    __str__ = __repr__
+    def __str__(self):
+        """Return representation of the Lannister character."""
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     def die(self):
         """
